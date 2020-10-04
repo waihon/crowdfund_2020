@@ -1,3 +1,7 @@
+def project_intro(project, fund)
+  "#{project.upcase.ljust(30, '.')} #{fund} fund"
+end
+
 project1 = "ABC"
 fund1 = 1000
 project2 = "LMN"
@@ -7,8 +11,7 @@ fund3 = 2150
 project4 = "PQR"
 fund4 = 4800
 
-puts "Projects:\n\t#{project1}\n\t#{project2}\n\t#{project3}\n\t#{project4}"
-puts "#{project1.upcase} has a fund of #{fund1}."
-puts "#{project2.upcase} has a health of #{fund2}."
-puts "#{project3.upcase} has a fund of #{fund3}.".center(50, "*")
-puts "#{project4.upcase.ljust(30, '.')} #{fund4} fund"
+puts project_intro(project1, fund1)
+puts project_intro(project2, fund2)
+puts project_intro(project3, fund3)
+puts project_intro(project4, fund4)
