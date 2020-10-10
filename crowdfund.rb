@@ -29,13 +29,22 @@ end
 
 if __FILE__ == $0
   project1 = Project.new("LMN", 500, 3000)
-  puts project1
   project2 = Project.new("XYZ", 25, 75)
-  puts project2
-  project1.remove_fund
-  project2.add_fund
-  puts project1
-  puts project2
-  puts project1.shortfall
-  puts project2.shortfall
+  project3 = Project.new("PQR", 2000, 15000)
+  projects = [project1, project2, project3]
+  puts "There are #{projects.size} projects:"
+  projects.each do |project|
+    puts project
+  end
+  projects.each do |project|
+    project.remove_fund
+    project.add_fund
+    puts project
+  end
+  projects.pop
+  project4 = Project.new("ABC", 1000, 8000)
+  projects.push(project4)
+  projects.each do |project|
+    puts project
+  end
 end
