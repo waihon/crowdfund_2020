@@ -1,4 +1,7 @@
 class Project
+  attr_reader :current_fund, :target_fund
+  attr_writer :name
+
   def initialize(name, initial_fund, target_fund)
     @name = name
     @current_fund = initial_fund
@@ -18,6 +21,10 @@ class Project
   def to_s
     "Project #{@name} has $#{@current_fund} in funding towardss a goal of $#{@target_fund}."
   end
+
+  def shortfall
+    @target_fund - @current_fund
+  end
 end
 
 if __FILE__ == $0
@@ -29,4 +36,6 @@ if __FILE__ == $0
   project2.add_fund
   puts project1
   puts project2
+  puts project1.shortfall
+  puts project2.shortfall
 end
