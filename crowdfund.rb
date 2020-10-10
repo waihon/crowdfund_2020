@@ -1,17 +1,32 @@
-def project_intro(project, fund)
-  "#{project.upcase.ljust(30, '.')} #{fund} fund"
+class Project
+  def initialize(name, initial_fund, target_fund)
+    @name = name
+    @current_fund = initial_fund
+    @target_fund = target_fund
+  end
+
+  def add_fund(fund=25)
+    @current_fund += fund
+    puts "Project #{@name} got more funds!"
+  end
+
+  def remove_fund(fund=15)
+    @current_fund -= fund
+    puts "Project #{@name} lost some funds!"
+  end
+
+  def to_s
+    "Project #{@name} has $#{@current_fund} in funding towardss a goal of $#{@target_fund}."
+  end
 end
 
-project1 = "ABC"
-fund1 = 1000
-project2 = "LMN"
-fund2 = 3000
-project3 = "XYZ"
-fund3 = 2150
-project4 = "PQR"
-fund4 = 4800
-
-puts project_intro(project1, fund1)
-puts project_intro(project2, fund2)
-puts project_intro(project3, fund3)
-puts project_intro(project4, fund4)
+if __FILE__ == $0
+  project1 = Project.new("LMN", 500, 3000)
+  puts project1
+  project2 = Project.new("XYZ", 25, 75)
+  puts project2
+  project1.remove_fund
+  project2.add_fund
+  puts project1
+  puts project2
+end
