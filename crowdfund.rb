@@ -27,24 +27,45 @@ class Project
   end
 end
 
+class Collection
+  def initialize(name)
+    @name = name
+    @projects = []
+  end
+
+  def add_project(project)
+    @projects << project
+  end
+
+  def remove_project(project)
+    @projects.delete(project)
+  end
+
+  def request_funding
+    puts "There are #{@projects.size} projects in #{@name}:"
+    @projects.each do |project|
+      puts project
+    end
+    @projects.each do |project|
+      project.add_fund
+      project.remove_fund
+      project.add_fund
+      puts project
+    end
+  end
+end
+
 if __FILE__ == $0
   project1 = Project.new("LMN", 500, 3000)
   project2 = Project.new("XYZ", 25, 75)
   project3 = Project.new("PQR", 2000, 15000)
-  projects = [project1, project2, project3]
-  puts "There are #{projects.size} projects:"
-  projects.each do |project|
-    puts project
-  end
-  projects.each do |project|
-    project.remove_fund
-    project.add_fund
-    puts project
-  end
-  projects.pop
+  collection = Collection.new("VC-Friendly Start-up Projects")
+  collection.add_project(project1)
+  collection.add_project(project2)
+  collection.add_project(project3)
+  collection.request_funding
+  collection.remove_project(project2)
   project4 = Project.new("ABC", 1000, 8000)
-  projects.push(project4)
-  projects.each do |project|
-    puts project
-  end
+  collection.add_project(project4)
+  collection.request_funding
 end
