@@ -27,7 +27,7 @@ class Project
   end
 end
 
-class Collection
+class FundRequest
   def initialize(name)
     @name = name
     @projects = []
@@ -59,13 +59,13 @@ if __FILE__ == $0
   project1 = Project.new("LMN", 500, 3000)
   project2 = Project.new("XYZ", 25, 75)
   project3 = Project.new("PQR", 2000, 15000)
-  collection = Collection.new("VC-Friendly Start-up Projects")
-  collection.add_project(project1)
-  collection.add_project(project2)
-  collection.add_project(project3)
-  collection.request_funding
-  collection.remove_project(project2)
+  fund_request = FundRequest.new("VC-Friendly Start-up Projects")
+  fund_request.add_project(project1)
+  fund_request.add_project(project2)
+  fund_request.add_project(project3)
+  fund_request.request_funding
+  fund_request.remove_project(project2)
   project4 = Project.new("ABC", 1000, 8000)
-  collection.add_project(project4)
-  collection.request_funding
+  fund_request.add_project(project4)
+  fund_request.request_funding
 end
