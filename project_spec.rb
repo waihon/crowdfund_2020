@@ -27,6 +27,4 @@ describe Project do
     expect(@project.current_fund).to eq(@initial_fund - 15)
   end
 
-  it "has a default value of 0 for funding amount"
-
 end
