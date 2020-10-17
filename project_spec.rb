@@ -15,7 +15,11 @@ describe Project do
     expect(@project.shortfall).to eq(4900)
   end
 
-  it "increases funds by 25 when funds are added"
+  it "increases funds by 25 when funds are added" do
+    @project.add_fund
+
+    expect(@project.current_fund).to eq(@initial_fund + 25)
+  end
 
   it "decreases funds by 15 when funds are removed"
 
