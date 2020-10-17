@@ -11,7 +11,9 @@ describe Project do
     expect(@project.current_fund).to eq(@initial_fund)
   end
 
-  it "computes the total funding outstanding as the target funding amount minus the funding amount"
+  it "computes the total funding outstanding as the target funding amount minus the funding amount" do
+    expect(@project.shortfall).to eq(4900)
+  end
 
   it "increases funds by 25 when funds are added"
 
