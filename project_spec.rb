@@ -21,7 +21,11 @@ describe Project do
     expect(@project.current_fund).to eq(@initial_fund + 25)
   end
 
-  it "decreases funds by 15 when funds are removed"
+  it "decreases funds by 15 when funds are removed" do
+    @project.remove_fund
+
+    expect(@project.current_fund).to eq(@initial_fund - 15)
+  end
 
   it "has a default value of 0 for funding amount"
 
