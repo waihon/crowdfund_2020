@@ -25,4 +25,8 @@ class Project
   def shortfall
     @target_fund - @current_fund
   end
+
+  def fully_funded?
+    shortfall <= 0
+  end
 end
