@@ -1,3 +1,5 @@
+require_relative 'dice'
+
 class FundRequest
   def initialize(name)
     @name = name
@@ -17,10 +19,14 @@ class FundRequest
     @projects.each do |project|
       puts project
     end
+    dice = Dice.new
     @projects.each do |project|
-      project.add_fund
-      project.remove_fund
-      project.add_fund
+      case dice.roll
+      when 1, 3, 5
+        project.remove_fund
+      when 2, 4, 6
+        project.add_fund
+      end
       puts project
     end
   end
